@@ -98,8 +98,8 @@ To train the model, I used an improved LeNet network which is more deeper than t
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 0.956
-* test set accuracy of 0.943
+* validation set accuracy of 0.965
+* test set accuracy of 0.941
 
 If a well known architecture was chosen:
 * What architecture was chosen?
@@ -120,7 +120,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
-The third image might be difficult to classify because the Road work sigh may be confused with ...
+The third image might be difficult to classify because the road work sigh may be confused with biycle crossing sign when the resolutions of training images are lower. After resizing the web image into shape (32,32,3) will introduce compression noises which make the model hard to predict. The softmax probalities of these two signs showed below are close to each other. 
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -141,9 +141,9 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (weight of 9.69), and the image does contain a stop sign. The top five weights were
+For the first image, the model is relatively sure that this is a stop sign (Softmax probability of 9.69), and the image does contain a stop sign. The top five weights were
 
-| Weights 	         	|     Prediction	        					| 
+| Probabilities        	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 9.69         			| 14: Stop sign   								| 
 | 0.48     				| 36: Go straight or right						|
@@ -152,9 +152,9 @@ For the first image, the model is relatively sure that this is a stop sign (weig
 | -0.27				    | 38: Keep right      							|
 
 
-For the second image, the model is relatively sure that this is a right-of-way sign (weight of 9.88), and the image does contain a right-of-way sign. The top five weights were
+For the second image, the model is relatively sure that this is a right-of-way sign (Softmax probability of 9.88), and the image does contain a right-of-way sign. The top five weights were
 
-| Weights 	         	|     Prediction	        					| 
+| Probabilities        	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 9.88         			| 11: Right-of-way at the next intersection		| 
 | 1.70     				| 30: Beware of ice/snow						|
@@ -162,9 +162,9 @@ For the second image, the model is relatively sure that this is a right-of-way s
 | 0.66	      			| 27: Pedestrians				 				|
 | 0.005				    | 21: Double curve     							|
 
-For the third image, the model is confused that this is a bicycles crossing sign (weight of 4.86), and the image does contain a actual road work sign (weight of 3.95). The top five weights were
+For the third image, the model is confused that this is a bicycles crossing sign (Softmax probability of 4.86), and the image does contain a actual road work sign (Softmax probability of 3.95). The top five weights were
 
-| Weights 	         	|     Prediction	        					| 
+| Probabilities        	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 4.86         			| 29: Bicycles crossing							| 
 | 3.95     				| 25: Road work 								|
@@ -172,10 +172,10 @@ For the third image, the model is confused that this is a bicycles crossing sign
 | 0.66	      			| 39: Keep left					 				|
 | 0.60				    | 30: Beware of ice/snow						|
 
-For the fourth image, the model is relatively sure that this is a 30km/h sign (weight of 9.45), and the image does contain a 30km/h sign. The top five weights were
+For the fourth image, the model is relatively sure that this is a 30km/h sign (Softmax probability of 9.45), and the image does contain a 30km/h sign. The top five weights were
 
 
-| Weights 	         	|     Prediction	        					| 
+| Probabilities        	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 9.45         			| 1: 30km/h 	   								| 
 | 1.77     				| 0: 20km/h										|
@@ -184,9 +184,9 @@ For the fourth image, the model is relatively sure that this is a 30km/h sign (w
 | -0.54				    | 5: 80km/h 	      							|
 
 
-For the fifth image, the model is relatively sure that this is a priority road sign (weight of 10.1), and the image does contain a priority road sign. The top five weights were
+For the fifth image, the model is relatively sure that this is a priority road sign (Softmax probability of 10.1), and the image does contain a priority road sign. The top five weights were
 
-| weights 	         	|     Prediction	        					| 
+| Probabilities        	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 10.1         			| 12: Priority road 							| 
 | 0.76     				| 15: No vehicles 								|
